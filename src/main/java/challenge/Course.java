@@ -1,15 +1,15 @@
 package challenge;
 
 import lombok.*;
+import lombok.experimental.NonFinal;
 
 import java.util.List;
 
 @Data
-@AllArgsConstructor
 @Builder
-public class Course {
-    private String id;
-    private String name;
-    private Teacher teacher;
-    @Singular private List<Student> students;
+@Value public class Course {
+    String id;
+    String name;
+    @NonFinal Teacher teacher;
+    @NonFinal @Singular List<Student> students;
 }

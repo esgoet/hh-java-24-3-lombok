@@ -54,6 +54,30 @@ public class Main
 
         mathTeacher = mathTeacher.withName("Elaine Moore");
         math101.setTeacher(mathTeacher);
-        System.out.println(math101.getTeacher());
+        System.out.println(math101);
+
+        University hamburgUniversity = University.builder()
+                .id("1")
+                .name("Hamburg University")
+                .course(math101)
+                .course(math102)
+                .build();
+
+        University berlinUniversity = University.builder()
+                .id("2")
+                .name("Berlin University")
+                .course(art201)
+                .build();
+
+        System.out.println(hamburgUniversity.name()
+                + " Grade Average: " +
+                UniversityService.calculateAverageByUniversity(hamburgUniversity));
+        System.out.println(berlinUniversity.name()
+                + " Grade Average: " +
+                UniversityService.calculateAverageByUniversity(berlinUniversity));
+        System.out.println(UniversityService.calculateAverageByCourse(math101));
+        System.out.println(UniversityService.calculateAverageByCourse(art201));
+        System.out.println(UniversityService.getStudentsWithGoodOrAboveAverage(hamburgUniversity));
+
     }
 }
